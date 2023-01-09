@@ -1,19 +1,9 @@
 kind: pipeline
 type: docker
 name: default
-trigger:
-  branch:
-  - main
 steps:
-  #1.maven 測試
-- name: maven-test
-  image: maven:3.6.1-jdk-8
+- name: greeting
+  image: alpine
   commands:
-  - mvn test 
-
-  #2.maven 打包
-- name: maven-build
-  image: maven:3.6.1-jdk-8
-  commands:
-  - mvn clean package -DskipTests=true -Dmaven.javadoc.skip=true -B -V 
-  
+  - echo hello
+  - echo world
