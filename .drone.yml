@@ -17,6 +17,6 @@ steps:
 # 觸發 pipeline 條件
 trigger:
   branch:
-  - master
+  - main
   event:
   - push
