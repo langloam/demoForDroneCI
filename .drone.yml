@@ -1,6 +1,9 @@
 kind: pipeline
+type: docker
 name: default
-
+trigger:
+  branch:
+  - main
 steps:
   #1.maven 測試
 - name: maven-test
@@ -13,10 +16,4 @@ steps:
   image: maven:3.6.1-jdk-8
   commands:
   - mvn clean package -DskipTests=true -Dmaven.javadoc.skip=true -B -V 
-
-# 觸發 pipeline 條件
-trigger:
-  branch:
-  - main
-  event:
-  - push
+  
